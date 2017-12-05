@@ -54,10 +54,24 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     }
 
     private fun operacion(){
-        name = editName?.text.toString()
+        var string = "PDHN"
+        var entero = 0
+        /*var doble = 5.0
+        var valor = true
+        var char = 'g'
+        var decimal = 5.2f*/
+
+        if(true){
+            entero = 5*5
+        } else{
+            string  = "no tiene permiso"
+        }
+        val d = string.length ?: 4
+
+        /*name = editName?.text.toString()
         age = editAge?.text.toString()
         if(name != "")textName?.text = name
-        if(age != "")textAge?.text = age
+        if(age != "")textAge?.text = age*/
     }
 
 }
