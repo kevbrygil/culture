@@ -56,16 +56,13 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     private fun operacion(){
 
         var entero = 0
-        var valor1 = 7
-        var valor2 = "Alex"
+        var valor1 = 10
+        var valor2 = 7
         var valor3 = false
-        /*if(!valor3){
-            valor1 %= valor2
-        }
-        valor3 = valor1?.equals(valor2) ?: (valor2 == null)
-        valor3 = valor1 != valor2
-        valor3 = valor1 != valor2
-        valor3 = !(valor1?.equals(valor2) ?: (valor2 == null))*/
+
+        valor3 = valor1.compareTo(valor2) >= 0//CompareTo: si valor1 es mayor a valor2 despliega 1 sino -1 y si son iguales despliega 0
+
+        /*valor3 = valor1 < valor2*/
 
 
         /*name = editName?.text.toString()
