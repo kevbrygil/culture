@@ -11,6 +11,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
+
 class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     private var editName: EditText? = null
@@ -25,7 +26,8 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        editName = findViewById(R.id.editText_Name)
+        editName = findViewById<EditText>(R.id.editText_Name)
+
         editAge = findViewById(R.id.editText_Age)
         textName = findViewById(R.id.textView_Name)
         textAge = findViewById(R.id.textView_Age)
