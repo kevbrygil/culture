@@ -64,8 +64,8 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         }
         valor3 = valor1?.equals(valor2) ?: (valor2 == null)
         valor3 = valor1 != valor2
-        valor3 = valor1 != valor2 */
-        valor3 = !(valor1?.equals(valor2) ?: (valor2 == null))
+        valor3 = valor1 != valor2
+        valor3 = !(valor1?.equals(valor2) ?: (valor2 == null))*/
 
 
         /*name = editName?.text.toString()
