@@ -3,6 +3,7 @@ package com.gastronomiatipica.cultura
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
@@ -33,6 +34,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         editName!!.addTextChangedListener(this)
         editAge!!.addTextChangedListener(this)
 
+        editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
 
     }
 
@@ -49,26 +51,28 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     }
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-        //Toast.makeText(this,s.toString(),Toast.LENGTH_SHORT).show()
+        name = editName?.text.toString()
+        if(name?.equals("") ?: ("" === null)){
+            editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+        } else {
+            editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL
+        }
     }
 
     private fun operacion(){
 
-        var entero = 0
-        var valor1 = 10
-        var valor2 = 7
-        var valor3 = false
-
-        valor3 = valor1.compareTo(valor2) >= 0//CompareTo: si valor1 es mayor a valor2 despliega 1 sino -1 y si son iguales despliega 0
-
-        /*valor3 = valor1 < valor2*/
-
-
-        /*name = editName?.text.toString()
+        name = editName?.text.toString()
         age = editAge?.text.toString()
-        if(name != "")textName?.text = name
-        if(age != "")textAge?.text = age*/
+        if(name?.equals("") ?: ("" === null)){
+            editName!!.requestFocus()
+        } else {
+            textName?.text = name
+            if (age?.equals("") ?: ("" === null)){
+                editAge!!.requestFocus()
+            } else{
+                textAge?.text = age
+            }
+        }
     }
 
 }
