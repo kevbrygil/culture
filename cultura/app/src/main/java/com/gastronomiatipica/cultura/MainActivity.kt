@@ -57,27 +57,16 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
         var entero = 0
         var valor1 = 7
-        var valor2 = 3
+        var valor2 = "Alex"
+        var valor3 = false
+        /*if(!valor3){
+            valor1 %= valor2
+        }
+        valor3 = valor1?.equals(valor2) ?: (valor2 == null)
+        valor3 = valor1 != valor2
+        valor3 = valor1 != valor2 */
+        valor3 = !(valor1?.equals(valor2) ?: (valor2 == null))
 
-        /*entero = valor1.plus(valor2) -sumar
-
-        entero = valor1.minus(valor2) -restar
-
-        entero = valor1.times(valor2) -multiplicacion
-
-        entero = valor1.div(valor2) -div
-
-        entero = valor1.rem(valor2) -resto de una division
-
-        valor1 = valor1.inc() -retornar el valor incrementado a 1 y guardarlo (++)
-
-        valor1 = valor1.dec() -retornar el valor decrementado a 1 y guardarlo (--)
-
-        valor1 += valor2
-
-        valor1 -= valor2
-
-        valor1 %= valor2 */
 
         /*name = editName?.text.toString()
         age = editAge?.text.toString()
