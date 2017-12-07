@@ -9,7 +9,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        editName = findViewById<EditText>(R.id.editText_Name)
+        editName = editText_Name
 
-        editAge = findViewById(R.id.editText_Age)
-        textName = findViewById(R.id.textView_Name)
-        textAge = findViewById(R.id.textView_Age)
-        button = findViewById(R.id.button_Ejecutar)
+        editAge = editText_Age
+        textName = textView_Name
+        textAge = textView_Age
+        button = button_Ejecutar
         button!!.setOnClickListener(this)
         editName!!.addTextChangedListener(this)
         editAge!!.addTextChangedListener(this)
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
         name = editName?.text.toString()
-        if(name?.equals("") ?: ("" === null)){
+        if(name?.equals("") ?: (false)){
             editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
         } else {
             editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL
@@ -65,11 +65,11 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
 
         name = editName?.text.toString()
         age = editAge?.text.toString()
-        if(name?.equals("") ?: ("" === null)){
+        if(name?.equals("") ?: (false)){
             editName!!.requestFocus()
         } else {
             textName?.text = name
-            if (age?.equals("") ?: ("" === null)){
+            if (age?.equals("") ?: (false)){
                 editAge!!.requestFocus()
             } else{
                 textAge?.text = age
