@@ -39,8 +39,10 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         editName!!.addTextChangedListener(this)
         editAge!!.addTextChangedListener(this)
 
-        radioM!!.setOnCheckedChangeListener(this)
-        radioF!!.setOnCheckedChangeListener(this)
+        /*radioM!!.setOnCheckedChangeListener(this)
+        radioF!!.setOnCheckedChangeListener(this)*/
+        radioM!!.setOnClickListener(this)
+        radioF!!.setOnClickListener(this)
 
         editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
 
@@ -49,7 +51,12 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     }
 
     override fun onClick(v: View?) {
-        operacion()
+        when(v!!.id){
+            R.id.button_Ejecutar -> operacion()
+            R.id.radioButton_M -> Toast.makeText(this, "Ha seleccionado Masculino", Toast.LENGTH_SHORT).show()
+            R.id.radioButton_F -> Toast.makeText(this, "Ha seleccionado Femenino", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     override fun afterTextChanged(p0: Editable?) {
@@ -70,11 +77,19 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     }
 
     override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
-        Toast.makeText(this, "Ha seleccionada una opción", Toast.LENGTH_SHORT).show()
+        /*when(p0!!.id){
+            R.id.radioButton_M ->
+                if (p1)
+                    Toast.makeText(this, "Ha seleccionado Masculino", Toast.LENGTH_SHORT).show()
+            R.id.radioButton_F->
+                if (p1)
+                    Toast.makeText(this, "Ha seleccionado Femenino", Toast.LENGTH_SHORT).show()
+        }*/
+
     }
 
     private fun operacion(){
-        var valor = "Kotlin"
+        /*var valor = "Kotlin"
         var dato1 = 1
 
         when{
@@ -84,9 +99,9 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
                 mensaje = valor
             else ->
                 mensaje = "No es correcto"
-        }
+        }*/
 
-        /*name = editName?.text.toString()
+        name = editName?.text.toString()
         age = editAge?.text.toString()
         if(name?.equals("") ?: (false)){
             editName!!.requestFocus()
@@ -97,7 +112,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
             } else{
                 textAge?.text = age
             }
-        }*/
+        }
     }
 
 }
