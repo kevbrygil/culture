@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     private var age: String? = null
     private var radioM: RadioButton? = null
     private var radioF: RadioButton? = null
+    private var mensaje = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -41,6 +43,8 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         radioF!!.setOnCheckedChangeListener(this)
 
         editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+
+        operacion()
 
     }
 
@@ -70,8 +74,19 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     }
 
     private fun operacion(){
+        var valor = "Kotlin"
+        var dato1 = 1
 
-        name = editName?.text.toString()
+        when{
+            dato1 > 3 ->
+                mensaje = valor
+            dato1 > 0 ->
+                mensaje = valor
+            else ->
+                mensaje = "No es correcto"
+        }
+
+        /*name = editName?.text.toString()
         age = editAge?.text.toString()
         if(name?.equals("") ?: (false)){
             editName!!.requestFocus()
@@ -82,7 +97,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
             } else{
                 textAge?.text = age
             }
-        }
+        }*/
     }
 
 }
