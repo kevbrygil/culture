@@ -6,14 +6,11 @@ import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
-
+class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     private var editName: EditText? = null
     private var editAge: EditText? = null
     private var textName: TextView? = null
@@ -21,7 +18,8 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
     private var button: Button? = null
     private var name: String? = null
     private var age: String? = null
-
+    private var radioM: RadioButton? = null
+    private var radioF: RadioButton? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,6 +33,9 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         button!!.setOnClickListener(this)
         editName!!.addTextChangedListener(this)
         editAge!!.addTextChangedListener(this)
+
+        radioM!!.setOnCheckedChangeListener(this)
+        radioF!!.setOnCheckedChangeListener(this)
 
         editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
 
@@ -59,6 +60,10 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener {
         } else {
             editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_NORMAL
         }
+    }
+
+    override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
+        Toast.makeText(this, "Ha seleccionado una opcion", Toast.LENGTH_SHORT).show()
     }
 
     private fun operacion(){
