@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         textName = textView_Name
         textAge = textView_Age
         button = button_Ejecutar
+        radioM = radioButton_M
+        radioF = radioButton_F
+
         button!!.setOnClickListener(this)
         editName!!.addTextChangedListener(this)
         editAge!!.addTextChangedListener(this)
@@ -63,7 +66,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     }
 
     override fun onCheckedChanged(p0: CompoundButton?, p1: Boolean) {
-        Toast.makeText(this, "Ha seleccionado una opcion", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Ha seleccionada una opción", Toast.LENGTH_SHORT).show()
     }
 
     private fun operacion(){
