@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     private var radioM: RadioButton? = null
     private var radioF: RadioButton? = null
     private var mensaje = ""
+    var data = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,19 +96,32 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         var boleanArray = BooleanArray(10)
         var floatArray = FloatArray(10)
         var byteArray = ByteArray(10)
-        var data = ""
+
         var array = arrayOf("Alex", "AJ", "PDHN")
-        array[1] = "AJPZ"
         array.set(1, "AJPZ")
-        data = array.get(1)
+        var count = arrayInt.size
+        //count--
+
         /*for(s in array){
             data = s
-        }*/
-        var count = array.size
-        count--
-        for(i in 0..count){
-            data = array.get(i)
         }
+
+        var array2 = Array<String>(3,{""})
+        var array2 = Array(3){""}*/
+        //var array2 = Array<String?>(3){null}
+
+        arrayInt[0] = 1
+        arrayInt.set(1,2)
+        var nullArray = arrayOfNulls<String>(3)
+
+        for(i in 0..count){
+            data = arrayInt.get(i)
+        }
+
+        /*nullArray.forEach {
+            a -> data = a.toString()
+        }*/
+
 
         /*var valor = "Kotlin"
         var dato1 = 1
