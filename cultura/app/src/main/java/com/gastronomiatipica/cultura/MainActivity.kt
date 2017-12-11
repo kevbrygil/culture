@@ -10,18 +10,24 @@ import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener {
+class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemClickListener {
     private var editName: EditText? = null
     private var editAge: EditText? = null
-    private var textName: TextView? = null
-    private var textAge: TextView? = null
     private var button: Button? = null
-    private var name: String? = null
-    private var age: String? = null
+    private var name = ""
+    private var age = ""
     private var radioM: RadioButton? = null
     private var radioF: RadioButton? = null
+    internal var lvsLista: ListView? = null//podran tener acceso solo las clases que esten dentro del mismo modulo MainActivate
+    private var genero = ""
     private var mensaje = ""
     var data = 0
+
+    private val num = 10
+    private var count = 1
+    internal var nombre: Array<String>? = null
+    internal var edad: Array<String>? = null
+    internal var sexo: Array<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,16 +36,16 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         editName = editText_Name
 
         editAge = editText_Age
-        textName = textView_Name
-        textAge = textView_Age
         button = button_Ejecutar
         radioM = radioButton_M
         radioF = radioButton_F
 
+        lvsLista = findViewById<ListView>(R.id.lista)
+
         button!!.setOnClickListener(this)
         editName!!.addTextChangedListener(this)
         editAge!!.addTextChangedListener(this)
-
+        lvsLista!!.setOnItemClickListener(this)
         /*radioM!!.setOnCheckedChangeListener(this)
         radioF!!.setOnCheckedChangeListener(this)*/
         radioM!!.setOnClickListener(this)
@@ -47,15 +53,19 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
 
         editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
 
-        operacion()
+        nombre = Array(num, {""})
+        edad = Array(num, {""})
+        sexo = Array(num, {""})
+
+        //operacion()
 
     }
 
     override fun onClick(v: View?) {
         when(v!!.id){
             R.id.button_Ejecutar -> operacion()
-            R.id.radioButton_M -> Toast.makeText(this, "Ha seleccionado Masculino", Toast.LENGTH_SHORT).show()
-            R.id.radioButton_F -> Toast.makeText(this, "Ha seleccionado Femenino", Toast.LENGTH_SHORT).show()
+            R.id.radioButton_M -> genero = "Masculino"
+            R.id.radioButton_F -> genero = "Femenino"
         }
 
     }
@@ -90,63 +100,52 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     }
 
     private fun operacion(){
-        var arrayInt = IntArray(10)
-        var doubleArray = DoubleArray(10)
-        var charArray = CharArray(10)
-        var boleanArray = BooleanArray(10)
-        var floatArray = FloatArray(10)
-        var byteArray = ByteArray(10)
-
-        var array = arrayOf("Alex", "AJ", "PDHN")
-        array.set(1, "AJPZ")
-        var count = arrayInt.size
-        //count--
-
-        /*for(s in array){
-            data = s
-        }
-
-        var array2 = Array<String>(3,{""})
-        var array2 = Array(3){""}*/
-        //var array2 = Array<String?>(3){null}
-
-        arrayInt[0] = 1
-        arrayInt.set(1,2)
-        var nullArray = arrayOfNulls<String>(3)
-
-        for(i in 0..count){
-            data = arrayInt.get(i)
-        }
-
-        /*nullArray.forEach {
-            a -> data = a.toString()
-        }*/
-
-
-        /*var valor = "Kotlin"
-        var dato1 = 1
-
-        when{
-            dato1 > 3 ->
-                mensaje = valor
-            dato1 > 0 ->
-                mensaje = valor
-            else ->
-                mensaje = "No es correcto"
-        }
-
         name = editName?.text.toString()
         age = editAge?.text.toString()
         if(name?.equals("") ?: (false)){
             editName!!.requestFocus()
         } else {
-            textName?.text = name
+
             if (age?.equals("") ?: (false)){
                 editAge!!.requestFocus()
             } else{
-                textAge?.text = age
+                if(radioM!!.isChecked || radioF!!.isChecked){
+                    var nombres: Array<String>
+                    for (i in 0..num){
+                        if (nombre?.get(i).equals("")){
+                            nombre?.set(i, name)
+                            edad?.set(i, age)
+                            sexo?.set(i, genero)
+                            nombres = Array(count,{""})
+                            for (j in 0..i){
+                                nombres[j] = nombre?.get(j) as String
+                            }
+                            var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombres)
+                            lvsLista!!.adapter = adapter
+
+                            count++
+                            break
+                        }
+                    }
+                }
             }
-        }*/
+        }
+    }
+    override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        editName!!.setText(nombre?.get(p2))
+        editAge!!.setText(edad?.get(p2))
+        when(sexo!!.get(p2)){
+            "Masculino" -> {
+                radioM!!.isChecked = true
+                genero = "Masculino"
+            }
+            "Femenino" ->{
+                radioF!!.isChecked = true
+                genero = "Femenino"
+            }
+        }
+        pos = p2
+        action = "update"
     }
 
 }
