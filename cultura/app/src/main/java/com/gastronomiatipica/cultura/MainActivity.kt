@@ -89,6 +89,26 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     }
 
     private fun operacion(){
+        var arrayInt = IntArray(10)
+        var doubleArray = DoubleArray(10)
+        var charArray = CharArray(10)
+        var boleanArray = BooleanArray(10)
+        var floatArray = FloatArray(10)
+        var byteArray = ByteArray(10)
+        var data = ""
+        var array = arrayOf("Alex", "AJ", "PDHN")
+        array[1] = "AJPZ"
+        array.set(1, "AJPZ")
+        data = array.get(1)
+        /*for(s in array){
+            data = s
+        }*/
+        var count = array.size
+        count--
+        for(i in 0..count){
+            data = array.get(i)
+        }
+
         /*var valor = "Kotlin"
         var dato1 = 1
 
@@ -99,7 +119,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
                 mensaje = valor
             else ->
                 mensaje = "No es correcto"
-        }*/
+        }
 
         name = editName?.text.toString()
         age = editAge?.text.toString()
@@ -112,7 +132,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
             } else{
                 textAge?.text = age
             }
-        }
+        }*/
     }
 
 }
