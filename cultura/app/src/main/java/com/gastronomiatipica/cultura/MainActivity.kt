@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     private var age = ""
     private var radioM: RadioButton? = null
     private var radioF: RadioButton? = null
-    internal var lvsLista: ListView? = null//podran tener acceso solo las clases que esten dentro del mismo modulo MainActivate
+    private var lvsLista: ListView? = null//podran tener acceso solo las clases que esten dentro del mismo modulo MainActivate
     private var genero = ""
     private var mensaje = ""
     var data = 0
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         button!!.setOnClickListener(this)
         editName!!.addTextChangedListener(this)
         editAge!!.addTextChangedListener(this)
-        lvsLista!!.setOnItemClickListener(this)
+        lvsLista!!.onItemClickListener = this
         /*radioM!!.setOnCheckedChangeListener(this)
         radioF!!.setOnCheckedChangeListener(this)*/
         radioM!!.setOnClickListener(this)
@@ -112,27 +112,61 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
                 editAge!!.requestFocus()
             } else{
                 if(radioM!!.isChecked || radioF!!.isChecked){
-                    var nombres: Array<String>
-                    for (i in 0..num){
-                        if (nombre?.get(i).equals("")){
-                            nombre?.set(i, name)
-                            edad?.set(i, age)
-                            sexo?.set(i, genero)
-                            nombres = Array(count,{""})
-                            for (j in 0..i){
-                                nombres[j] = nombre?.get(j) as String
-                            }
-                            var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombres)
-                            lvsLista!!.adapter = adapter
-
-                            count++
-                            break
-                        }
+                    when (action){
+                        "Insertar" -> addDatos()
+                        "update" -> updateDatos()
                     }
                 }
             }
         }
     }
+
+    private fun addDatos(){
+        var nombres: Array<String>
+        var n = 0
+        for (i in n.until(num-1)){
+            if (nombre?.get(i).equals("")){
+                nombre?.set(i, name)
+                edad?.set(i, age)
+                sexo?.set(i, genero)
+                nombres = Array(count,{""})
+                for (j in 0..i){
+                    nombres[j] = nombre?.get(j) as String
+                }
+                var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, nombres)
+                lvsLista!!.adapter = adapter
+
+                count++
+                break
+            }
+        }
+        editName!!.setText("")
+        editAge!!.setText("")
+    }
+
+    private fun updateDatos(){
+        count = 1
+        var n = 0
+        for (i in n.until(num-1)){
+            if(nombre?.get(i) != ""){
+                if(pos == i){
+                    nombre?.set(i,name)
+                    edad?.set(i,age)
+                    sexo?.set(1,genero)
+                }
+                val listName = Array(count,{""})
+                for(j in n.until(count)){
+                    listName?.set(j,nombre?.get(j) as String)
+                }
+                count ++
+                var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listName)
+                lvsLista!!.adapter = adapter
+            }
+        }
+        editName!!.setText("")
+        editAge!!.setText("")
+    }
+
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         editName!!.setText(nombre?.get(p2))
         editAge!!.setText(edad?.get(p2))
