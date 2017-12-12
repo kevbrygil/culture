@@ -14,19 +14,19 @@ import kotlinx.android.synthetic.main.adapter_layout.*
 class CustomAdapter(context: Context,al_flower:ArrayList<ModelFood>) : BaseAdapter(){
 
     private val mInflator: LayoutInflater
-    private val al_flower:ArrayList<ModelFood>
+    private val arrayFood: ArrayList<ModelFood>
 
     init {
         this.mInflator = LayoutInflater.from(context)
-        this.al_flower=al_flower
+        this.arrayFood=al_flower
     }
 
     override fun getCount(): Int {
-        return al_flower.size
+        return arrayFood.size
     }
 
     override fun getItem(position: Int): Any {
-        return al_flower.get(position)
+        return arrayFood.get(position)
     }
 
     override fun getItemId(position: Int): Long {
@@ -45,9 +45,9 @@ class CustomAdapter(context: Context,al_flower:ArrayList<ModelFood>) : BaseAdapt
             vh = view.tag as ListRowHolder
         }
 
-        vh.label!!.text = al_flower[position].str_name
-        vh.description!!.text = al_flower[position].str_des
-        vh.image!!.setImageResource(al_flower[position].int_image)
+        vh.label!!.text = arrayFood[position].str_name
+        vh.description!!.text = arrayFood[position].str_des
+        vh.image!!.setImageResource(arrayFood[position].int_image)
         return view
     }
 }
@@ -58,10 +58,9 @@ private class ListRowHolder(row: View?) {
     var image: ImageView? = null
 
     init {
-        this.label = row!!.findViewById(R.id.tv_name)
-        this.description = row!!.findViewById(R.id.tv_des)
-        this.image = row!!.findViewById(R.id.iv_flower)
+        this.label = row?.findViewById(R.id.tv_name)
+        this.description = row?.findViewById(R.id.tv_des)
+        this.image = row?.findViewById(R.id.iv_food)
     }
-
 
 }

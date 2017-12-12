@@ -14,9 +14,8 @@
         android:textStyle="bold"/>
 
     <ListView
+        android:id="@+id/lv_food"
         android:layout_width="match_parent"
-        android:id="@+id/lv_flower"
-        android:layout_height="match_parent">
-    </ListView>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

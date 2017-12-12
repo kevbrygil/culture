@@ -9,7 +9,6 @@ class ModelFood{
         this.int_image=int_image
         this.str_name=str_name
         this.str_des=str_des
-
     }
 
 }

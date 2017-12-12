@@ -1,15 +1,21 @@
 package com.admin.gastronomia
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.AdapterView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
+
+    private val food=ArrayList<ModelFood>()
 
     override fun onCreate(savedState: Bundle?) {
         super.onCreate(savedState)
         setContentView(R.layout.activity_main)
 
-        val food=ArrayList<ModelFood>()
+
+
         food.add(ModelFood("Panuchos",R.drawable.panuchos,"Costumbre y tradición con sabor a Yucatán"))
 
         food.add(ModelFood("Papadzules",R.drawable.papadzules,"Bien embarrados y remojados"))
@@ -33,7 +39,15 @@ class MainActivity : AppCompatActivity() {
 
         val objAdapter : CustomAdapter
         objAdapter = CustomAdapter(applicationContext,food)
-        lv_flower.adapter=objAdapter
+        lv_food.adapter=objAdapter
+
+        lv_food!!.onItemClickListener = this
+
+    }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        var hola = food.get(position)
+        Toast.makeText(this, "Ha vibrado", Toast.LENGTH_SHORT).show()
     }
 
 }
