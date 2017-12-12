@@ -5,4 +5,5 @@
     <string name="app_Button">Ejecutar</string>
     <string name="app_radioButtonM">Masculino</string>
     <string name="app_radioButtonF">Femenino</string>
+    <string name="app_alertTitle">Estas seguro de eliminar este registro?</string>
 </resources>

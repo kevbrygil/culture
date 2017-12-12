@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
+import android.support.v7.app.AlertDialog
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
@@ -198,14 +199,43 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         action = "Update"
     }
 
-    override fun onItemLongClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long): Boolean {
+    override fun onItemLongClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long): Boolean {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
             vibrator?.vibrate(VibrationEffect.createOneShot(3, 10))
         }else{
             vibrator?.vibrate(3)
         }
-        Toast.makeText(this, "Ha vibrado", Toast.LENGTH_SHORT).show()
+        alertDialog(position)
         return true
     }
 
+    private fun alertDialog(i: Int){
+        val alert = AlertDialog.Builder(this)
+        alert.setIcon(R.mipmap.ic_pdhn)
+                .setTitle(R.string.app_alertTitle)
+                .setPositiveButton("Eliminar"){dialog, which ->
+                    //Toast.makeText(this, "Ha vibrado", Toast.LENGTH_SHORT).show()
+                    nombre?.set(i,"")
+                    edad?.set(i,"")
+                    sexo?.set(i,"")
+                    mostrar()
+                }
+                .setNegativeButton("Cancelar"){sialog, which -> }
+                .show()
+    }
+
+    private fun mostrar(){
+        count = 1
+        for (i in 0 until num){
+            if(nombre!![i] != ""){
+                val listName = arrayOfNulls<String>(count)
+                for (j in 0 until count){
+                    listName[j] = nombre!![i]
+                }
+                count++
+                var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listName)
+                lvsLista!!.adapter = adapter
+            }
+        }
+    }
 }
