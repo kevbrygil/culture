@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
     var data = 0
 
     private val num = 10
+    private var pos = 0
+    private var action = "insert"
     private var count = 1
     internal var nombre: Array<String>? = null
     internal var edad: Array<String>? = null
