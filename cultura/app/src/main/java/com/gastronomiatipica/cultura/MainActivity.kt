@@ -1,7 +1,12 @@
 package com.gastronomiatipica.cultura
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
@@ -10,7 +15,8 @@ import android.widget.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemClickListener {
+class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
+
     private var editName: EditText? = null
     private var editAge: EditText? = null
     private var button: Button? = null
@@ -25,11 +31,13 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
 
     private val num = 10
     private var pos = 0
-    private var action = "insert"
+    private var action = "Insertar"
     private var count = 1
-    internal var nombre: Array<String>? = null
-    internal var edad: Array<String>? = null
-    internal var sexo: Array<String>? = null
+    private var nombre: Array<String>? = null
+    private var edad: Array<String>? = null
+    private var sexo: Array<String>? = null
+
+    private var vibrator: Vibrator? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,18 +50,23 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         radioM = radioButton_M
         radioF = radioButton_F
 
-        lvsLista = findViewById<ListView>(R.id.lista)
+        lvsLista = findViewById(R.id.lista)
 
         button!!.setOnClickListener(this)
         editName!!.addTextChangedListener(this)
         editAge!!.addTextChangedListener(this)
         lvsLista!!.onItemClickListener = this
+
+        lvsLista!!.onItemLongClickListener = this
+
         /*radioM!!.setOnCheckedChangeListener(this)
         radioF!!.setOnCheckedChangeListener(this)*/
         radioM!!.setOnClickListener(this)
         radioF!!.setOnClickListener(this)
 
         editName!!.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS
+
+        vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator?
 
         nombre = Array(num, {""})
         edad = Array(num, {""})
@@ -114,7 +127,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
                 if(radioM!!.isChecked || radioF!!.isChecked){
                     when (action){
                         "Insertar" -> addDatos()
-                        "update" -> updateDatos()
+                        "Update" -> updateDatos()
                     }
                 }
             }
@@ -149,10 +162,10 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         var n = 0
         for (i in n.until(num-1)){
             if(nombre?.get(i) != ""){
-                if(pos == i){
+                if(pos === i){
                     nombre?.set(i,name)
                     edad?.set(i,age)
-                    sexo?.set(1,genero)
+                    sexo?.set(i,genero)
                 }
                 val listName = Array(count,{""})
                 for(j in n.until(count)){
@@ -165,6 +178,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
         }
         editName!!.setText("")
         editAge!!.setText("")
+        action = "Insertar"
     }
 
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
@@ -181,7 +195,17 @@ class MainActivity : AppCompatActivity(), TextWatcher, View.OnClickListener, Com
             }
         }
         pos = p2
-        action = "update"
+        action = "Update"
+    }
+
+    override fun onItemLongClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long): Boolean {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            vibrator?.vibrate(VibrationEffect.createOneShot(3, 10))
+        }else{
+            vibrator?.vibrate(3)
+        }
+        Toast.makeText(this, "Ha vibrado", Toast.LENGTH_SHORT).show()
+        return true
     }
 
 }
