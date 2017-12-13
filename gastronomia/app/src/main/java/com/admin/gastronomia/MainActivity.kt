@@ -1,4 +1,5 @@
 package com.admin.gastronomia
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -46,8 +47,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        var hola = food.get(position)
-        Toast.makeText(this, "Ha vibrado", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "evento para ver el ingrediente", Toast.LENGTH_SHORT).show()
+        val intent = Intent(this, RecipeActivity::class.java)
+        startActivity(intent)
     }
+
+
 
 }
