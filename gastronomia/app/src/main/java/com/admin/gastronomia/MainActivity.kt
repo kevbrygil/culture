@@ -4,54 +4,41 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     private val food=ArrayList<ModelFood>()
+    private var states:Array<String> = Array(32,{""})
+
 
     override fun onCreate(savedState: Bundle?) {
         super.onCreate(savedState)
         setContentView(R.layout.activity_main)
 
+        initStates()
 
+        var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, states)
 
-        food.add(ModelFood("Panuchos",R.drawable.panuchos,"Costumbre y tradición con sabor a Yucatán"))
+        lv_state!!.adapter = adapter
 
-        food.add(ModelFood("Papadzules",R.drawable.papadzules,"Bien embarrados y remojados"))
-
-        food.add(ModelFood("Sopa de Lima",R.drawable.sopa_de_lima,"Sabor sutil de la tierra yucateca"))
-
-        food.add(ModelFood("Huevos Motuleños",R.drawable.huevos_motulenos,"Un platillo con historia y mucho sabor"))
-
-        food.add(ModelFood("Cochinita Pibil",R.drawable.cochinita_pibil,"El sabor más reconocido de la comida yucateca"))
-
-        food.add(ModelFood("Poc Chuc",R.drawable.poc_chuc,"Platillo obligado de la gastronomía de Yucatán"))
-
-        food.add(ModelFood("Dulce de Papaya",R.drawable.dulce_papaya,"Inolvidable sabor de la tradición yucateca"))
-
-        food.add(ModelFood("Queso Relleno",R.drawable.queso_relleno,"Exquisita combinación de sabores y texturas"))
-
-        food.add(ModelFood("Relleno Negro",R.drawable.relleno_negro,"Exuberante combinación de especias e ingredientes"))
-
-        food.add(ModelFood("Vaporcitos",R.drawable.vaporcitos,"Tradicional sabor para disfrutar tras el atardecer yucateco"))
-
-
-        val objAdapter : CustomAdapter
-        objAdapter = CustomAdapter(applicationContext,food)
-        lv_food.adapter=objAdapter
-
-        lv_food!!.onItemClickListener = this
+        lv_state!!.onItemClickListener = this
 
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        Toast.makeText(this, "evento para ver el ingrediente", Toast.LENGTH_SHORT).show()
-        val intent = Intent(this, RecipeActivity::class.java)
+        val intent = Intent(this, FoodActivity::class.java)
+        intent.putExtra("state",states.get(position))
         startActivity(intent)
     }
 
-
+    private fun initStates(){
+        states = arrayOf("Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", "Chihuahua",
+                "Ciudad de México", "Coahuila", "Colima", "Durango", "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán",
+                "Morelos", "Nayarit", "Nuevo León", "Oaxaca", "Puebla", "Querétaro", "Quintana Roo", "San Luis Potosí", "Sinaloa",
+                "Sonora", "Tabasco", "Tamaulipas", "Tlaxcala", "Veracruz", "Yucatán", "Zacatecas")
+    }
 
 }

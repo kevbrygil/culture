@@ -1,27 +1,31 @@
-<LinearLayout android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    tools:context=".FoodActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textViewSelect"
+            android:id="@+id/textViewDes"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="@string/select_state"
+            android:text="@string/food_yucatan"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <ListView
-            android:id="@+id/lv_state"
+            android:id="@+id/lv_food"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-    </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
