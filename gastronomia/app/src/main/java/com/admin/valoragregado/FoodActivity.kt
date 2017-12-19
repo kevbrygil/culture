@@ -186,103 +186,103 @@ class FoodActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
     }
 
     private fun addDurango(){
-        food.add(ModelFood("Gallinas Borrachas",R.drawable.aguas_cochinita,"básicamente es carne de gallina cocinada en una salsa con vegetales y alcohol, a la que se le añaden pasas y nueces."))
+        food.add(ModelFood("Caldillo duranguense",R.drawable.durango_caldillo,"Uno de los platillos más representativos de la entidad, también conocido como caldillo de machaca."))
 
-        food.add(ModelFood("Caldillo Duranguense",R.drawable.aguas_pollo,"Esta comida consiste en un caldo ligero preparado con filete de carne de res, cebollas, ajo, tomates/jitomates y chiles."))
+        food.add(ModelFood("Tamales",R.drawable.durango_tamales,"Esta Son similares a los tamales de la Ciudad de México, pues son envueltos en hojas de maíz y cocidos al vapor."))
 
-        food.add(ModelFood("Mostachones",R.drawable.aguas_campesina,"Son dulces horneados elaborados de leche, azúcar y nueces."))
+        food.add(ModelFood("Enchiladas",R.drawable.durango_enchiladas,"Tradicional delicia que consta de tortillas fritas en manteca de cerdo."))
 
-        food.add(ModelFood("Bigotes de Pancho",R.drawable.aguas_chile,"A menudo son rellenados con chocolate o jaleas de higo o piña y se elaboran con arroz, leche, canela, azúcar y nueces."))
+        food.add(ModelFood("Albóndigas",R.drawable.durango_albondigas,"Se presenta sobre un caldillo dechiles, cilantro y almendras."))
     }
 
     private fun addGuanajuato(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Enchiladas Mineras",R.drawable.guana_enchiladasmineras,"Esta hecho con tortillas fritas rellenas de queso y bañadas en salsa de chile guajillo, acompañadas de papas y zanahorias."))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Fiambre Estilo San Miguel de Allende",R.drawable.guana_fiambre,"En San Miguel Allende, es de ley saborear unas pellizcadas de nata y el fiambre estilo San Miguel de Allende."))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Gorditas de Atotonilco",R.drawable.guana_gordita,"Atotonilco puedes disfrutar de unas deliciosas gorditas de chicharrón en salsa verde o roja."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Cajeta de Celaya",R.drawable.guana_cajeta,"Famosa cajeta o también conocida como caramelo."))
     }
 
     private fun addGuerrero(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Pozole guerrerense",R.drawable.gue_pozole,"Puede ser verde, blanco o rojo y su preparación varía un poco dependiendo de la región donde se prepara."))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Pescado a la talla",R.drawable.gue_pescado,"Este platillo es común en la región de Costa Grande."))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Tamales por región",R.drawable.gue_pescado,"Dependiendo de la región, se pueden probar de frijol, maíz, pollo, iguana e incluso de ciruela."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Pulpo enamorado",R.drawable.gue_tamales,"Consiste en pulpo hervido con cebolla, ajo y epazote, mezclado con mayonesa, cilantro, chiles y cebolla."))
     }
 
     private fun addHidalgo(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Los gusanos de maguey",R.drawable.hidalgo_gusanos,"Son dos especies de larvas de lepidópteros que se crían en las pencas de las especies de la familia del Agave."))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Los Pastes",R.drawable.hidalgo_pastes,"Es un pan (en ocasiones hojaldrado) relleno con papa y carne, de acuerdo con la receta tradicional."))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Zacahuil",R.drawable.hidalgo_zacahuil,"Tamal de gran tamaño, puede ser de un metro o más."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Guajolote",R.drawable.hidalgo_guajolote,"Platillo típico y muy famoso en Tulancingo y sus alrededores."))
     }
 
     private fun addJalisco(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Torta Ahogada",R.drawable.jal_tortaahogada,"La torta ahogada es uno de los platillos más típicos y representativos de Guadalajara."))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Pozole",R.drawable.jal_pozole,"El Pozole es una platillo muy mexicano."))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Cazuela",R.drawable.jal_cazuela,"Bebida preparada tradicionalmente en el Parían de Tlaquepaque."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Birria",R.drawable.jal_birria,"Una delicia culinaria originaria de Jalisco."))
     }
 
     private fun addMexico(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Queso fundido con chorizo",R.drawable.estadomx_queso,"Este antojito estará listo en sólo 20 minutos."))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Pancita",R.drawable.estadomx_pancita,"Prepáralo en casa y acompáñalo con tortillas de maíz."))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Tacos de papa con chorizo",R.drawable.estadomx_tacosdepapaconchorizo,"Esta receta además de rica es eonómica, sólo necesitas cuatro ingredientes para prepararla."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Insectos",R.drawable.estadomx_gusanos,"Las culturas prehispánicas en México tenían como base de su alimentación a algunos insectos."))
     }
 
     private fun addMichoacan(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Sopa Tarasca",R.drawable.aguas_cochinita,"Se sirve adornada con tiras de tortilla frita, rebanadas de aguacate, chile pasilla frito, crema y cuadritos de queso."))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Corundas y Uchepos",R.drawable.aguas_pollo,"Las corundas son tamales de maíz rellenos de verduras y queso."))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Charales",R.drawable.aguas_campesina,"Pequeños pescados que se venden fritos para comerse como botana con sal y limón. Es un antojito clásico del lago de Pátzcuaro."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Tacos de carnitas",R.drawable.aguas_chile,"Son tan populares que en Estados Unidos se anuncian aclarando que son tacos Carnitas Style Michoacan."))
     }
 
     private fun addMorelos(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Tamales de cintura",R.drawable.morelos_tamal,"Ubicados en el centro y suroeste del estado son dos tamales hechos con granos de elote, calabacita, cebolla y chile poblano"))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Cecina",R.drawable.morelos_cecina,"Autentica de Yecapixtla"))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Huaxmole de res o cerdo",R.drawable.morelos_huax," Lo puedes encontrar en Tepalcingo y es un mole hecho a base de guajes, acompañado de arroz rojo y frijoles negros."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Pollo en pipian verde",R.drawable.morelos_pollo,"Autentico de Xoxocotla que está hecho a base de semilla de calabaza servido con tamales negros y arroz blanco."))
     }
 
     private fun addNayarit(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Pescado zarandeado",R.drawable.nayarit_zarandiado,"Se marina a un pescado Pargo con ajo, pimienta, sal y más para cocerlo a la parrilla, sobre la leña."))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Pollo estilo Ixtlán del Río",R.drawable.nayarit_pollo,"También se le conoce como pollo a la pepitoria, frito con harina y condimentado con cebolla sofreída, laure y perejil."))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Tostadas de chanfaina",R.drawable.nayarit_tostada,"La chanfaina es el bofe, corazón e hígado de la res cocidos."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Cucarachas de camarón",R.drawable.nayarit_cuca,"Que no te engañe el nombre, son un tipo de camarón sazonado con sal de ajo y dorados con mantequilla."))
     }
 
     private fun addNvoLeon(){
-        food.add(ModelFood("Carne tatemada",R.drawable.aguas_cochinita,"Tatemar es una palabra de origen náhuatl que significa poner al fuego, asar o tostar."))
+        food.add(ModelFood("Cabrito asado",R.drawable.nl_cabrito,"Carne de cabra joven cocinada a las brasas y bañada con una mezcla de jugo de limón, cebolla, ajo, pimiento y azúcar."))
 
-        food.add(ModelFood("Pollo San Marcos",R.drawable.aguas_pollo,"Es muy popular durante la Fiesta de San Marcos."))
+        food.add(ModelFood("Machaca",R.drawable.nl_machaca,"Carne seca desmenuzada y machacada. Puede cocinarse con huevo y suele acompañarse con frijoles, salsa y tortillas de harina."))
 
-        food.add(ModelFood("Sopa campesina",R.drawable.aguas_campesina,"Es una explosión de sabor deliciosa.."))
+        food.add(ModelFood("Arrachera",R.drawable.nl_arrachera,"Corte de carne de res originario de Monterrey. Se cocina a la parrilla y se acompaña con tortillas, frijoles y salsa."))
 
-        food.add(ModelFood("Chile aguascalentense",R.drawable.aguas_chile,"Es de sabor agridulce y se puede probar en cualquier época del año."))
+        food.add(ModelFood("Capirotada",R.drawable.nl_capirotada,"Pan tostado que se cocina junto con queso, cacahuate, pasas y piloncillo, mismo que le da un sabor peculiar."))
     }
 
     private fun addOaxaca(){
@@ -324,6 +324,7 @@ class FoodActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         food.add(ModelFood("Hamburguesa de atún",R.drawable.qroo_hamburguesadeatun,"Una receta original y deliciosa creada en Playa del Carmen para los que quieren probar algo diferente."))
     }
+
     private fun addSanLuis(){
         food.add(ModelFood("Asado de Boda",R.drawable.luis_boda,"Casarse ya no tendrá que ser necesario para probar este manjar de la zona arida."))
 
@@ -333,6 +334,7 @@ class FoodActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         food.add(ModelFood("Queso de Tuna",R.drawable.luis_quesodetuna,"El queso de tuna se elabora de forma artesanal."))
     }
+
     private fun addSinaloa(){
         food.add(ModelFood("Ceviche de Camarón",R.drawable.sinaloa_cevichecamaron,"Nada como un fin de semana para degustar un delicioso Ceviche de Camarón fresco."))
 
@@ -342,6 +344,7 @@ class FoodActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         food.add(ModelFood("Frijoles charros",R.drawable.sinaloa_frijolescharros,"Nada como llegar a casa después de un exhaustivo día de trabajo y deleitar el paladar."))
     }
+
     private fun addSonora(){
         food.add(ModelFood("Tamales sonorenses",R.drawable.sonora_tamales,"La particularidad de los deliciosos tamales de Sonora está en su exquisita masa de maíz rellena."))
 
@@ -361,6 +364,7 @@ class FoodActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         food.add(ModelFood("Tostones de plátano macho",R.drawable.tabasco_tostones,"Se sirven con las hojas de plátano, acompañadas de alguna salsa de su preferencia."))
     }
+
     private fun addTama(){
         food.add(ModelFood("Carne a la tampiqueña",R.drawable.tama_carne,"Se elabora con tiras de filete de res asada y se acompaña con frijoles charros."))
 
@@ -370,6 +374,7 @@ class FoodActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         food.add(ModelFood("Sopa de bolitas de tortilla",R.drawable.aguas_chile,"Sopa con carne sazonado, jitomate, cebolla y pimienta."))
     }
+
     private fun addTlaxcala(){
         food.add(ModelFood("Gusanos de maguey",R.drawable.tlax_gusano,"Se degustan principalmente durante la época de lluvias."))
 
