@@ -1,4 +1,4 @@
-package com.admin.gastronomia
+package com.admin.valoragregado
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.adapter_layout.*
 
 
 class CustomAdapter(context: Context,al_flower:ArrayList<ModelFood>) : BaseAdapter(){

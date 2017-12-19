@@ -1,4 +1,4 @@
-package com.admin.gastronomia
+package com.admin.valoragregado
 
 import org.junit.Test
 
