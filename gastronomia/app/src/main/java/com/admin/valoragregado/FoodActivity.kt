@@ -48,9 +48,11 @@ class FoodActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val intent = Intent(this, RecipeActivity::class.java)
-        var imageintent = food.get(position).int_image
+        var objfood = food.get(position)
 
-        intent.putExtra("image", imageintent)
+        intent.putExtra("image", objfood.int_image)
+        intent.putExtra("name", objfood.str_name)
+        intent.putExtra("description", objfood.str_des)
         startActivity(intent)
     }
 
@@ -414,6 +416,5 @@ class FoodActivity : AppCompatActivity(), AdapterView.OnItemClickListener {
 
         food.add(ModelFood("Birria zacatecana",R.drawable.zaca_birria,"Consiste en carne de borrego preparada en consomé  a la que se acompañada con cebolla, cilantro y salsa al gusto."))
     }
-
 
 }
