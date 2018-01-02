@@ -1,4 +1,4 @@
-package com.admin.valoragregado
+package com.admin.cva
 
 class ModelState {
     var str_name:String =""
